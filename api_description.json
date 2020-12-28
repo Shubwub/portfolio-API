@@ -1,0 +1,4 @@
+{
+  "projects": "GET / - Returns an array of projects",
+  "blog": "GET / - Returns an array of blogposts"
+}
