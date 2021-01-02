@@ -1,6 +1,8 @@
 const express = require("express");
 const apiRouter = express.Router();
 const { notAllowed } = require("../errors");
+const projectsRouter = require("./projects_router");
+const blogRouter = require("./blog_router");
 
 apiRouter
   .route("/")
@@ -10,5 +12,8 @@ apiRouter
     });
   })
   .all(notAllowed);
+
+apiRouter.use("/projects", projectsRouter);
+apiRouter.use("/blogposts", blogRouter);
 
 module.exports = apiRouter;
