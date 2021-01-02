@@ -14,6 +14,6 @@ apiRouter
   .all(notAllowed);
 
 apiRouter.use("/projects", projectsRouter);
-apiRouter.use("/blogposts", blogRouter);
+apiRouter.use("/blogs", blogRouter);
 
 module.exports = apiRouter;

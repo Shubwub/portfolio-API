@@ -1,15 +1,20 @@
-const { selectBlogs, createBlog } = require("../models/blogs.js");
+const { findBlogs, saveBlog } = require("../models/blogs.js");
 
-exports.getBlogs = (req, res, next) => {
-  // selectBlogs(req.query)
-  //   .then((blogs) => res.send({ returned_results: blogs.length, blogs }))
-  //   .catch(next);
-  res.send({ returned_results: 1, blogs: [{ blog: "blog" }] });
+exports.getBlogs = async (req, res, next) => {
+  try {
+    const blogs = await findBlogs();
+    res.send({ returned_results: blogs.length, blogs });
+  } catch (e) {
+    next(e);
+  }
 };
 
-exports.postBlog = (req, res, next) => {
-  // createBlog(req.query)
-  //   .then((blog) => res.send({ blog }))
-  //   .catch(next);
-  res.send({ project: "project" });
+exports.postBlog = async (req, res, next) => {
+  try {
+    const blog = await saveBlog();
+    res.send({ blog });
+  } catch (e) {
+    console.log(e, "error");
+    next(e);
+  }
 };
