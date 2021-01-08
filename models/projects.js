@@ -22,7 +22,7 @@ const projectSchema = new Schema({
     type: String,
     required: false,
   },
-  GeneralRepo: {
+  generalRepo: {
     type: String,
     required: false,
   },
